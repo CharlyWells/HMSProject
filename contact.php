@@ -1,7 +1,30 @@
 
   <?php include 'header.php';?>
 
-  
+
+  <?php
+  if(isset($_POST['submit'])) {
+    $mailto = "wellingtoncharlottenaaodarley@gmail.com";
+    $from = $_POST['email'];
+    $name = $_POST['name'];
+    $subject =  $_POST['subject'];
+    $subject2 =  "Your Message Submitted Successfully";
+    $message =  "Client Name: ". $name. "Wrote the Following Message". "\n\n". $_POST['message'];
+    $message2 = "Dear ". $name. "Thank You for contacting us! We'll get back to you shortly"; 
+    $headers = "From: ".$from;
+    $headers2 = "From: ". $mailto;
+    $result =  mail($mailto, $subject, $message, $headers);
+    $result2=  mail($from, $subject2, $message2 $header2);
+    if($result) {
+      echo '<script type= "text/javascript">alert("Message was sent Successfully")</script>';
+
+    } else{
+      echo '<script type="text/javascript">alert("Submission failed! Try again later")</script>';
+    }
+
+  }
+
+  ?>
   <!-- Content -->
   <div id="content"> 
     
@@ -107,12 +130,7 @@
       </div>
     </section>
     
-    <!-- MAP -->
-    <section class="map-block margin-top-100">
-      <div class="map-wrapper" id="map-canvas" data-lat="23.740051" data-lng="90.371239" data-zoom="13" data-style="1"></div>
-      <div class="markers-wrapper addresses-block"> <a class="marker" data-rel="map-canvas" data-lat="23.740051" data-lng="90.371239" data-string="Medical Hospital"></a> </div>
-    </section>
-  </div>
+   
   
   <!-- Footer -->
 

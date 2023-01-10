@@ -75,7 +75,7 @@ if(!isset($_SESSION[doctorid]))
           <div class="icon"> <i class="zmdi zmdi-balance col-cyan"></i> </div>
           <div class="content">
             <div class="text">Total Earning Earning</div>
-            <div class="number">₱ 
+            <div class="number">₵ 
               <?php 
               $sql = "SELECT sum(bill_amount) as total  FROM `billing_records` WHERE `bill_type` = 'Consultancy Charge'" ;
               $qsql = mysqli_query($con,$sql);
